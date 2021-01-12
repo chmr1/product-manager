@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { ProductListComponent } from './list';
 import { ProductCreateComponent } from './create';
+import { StarComponent } from './../shared';
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    StarComponent
   ],
   imports: [
     CommonModule,
