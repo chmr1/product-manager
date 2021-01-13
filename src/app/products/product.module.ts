@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { ProductListComponent } from './list';
 import { ProductCreateComponent } from './create';
+import { ProductDetailComponent } from './detail';
 import { StarComponent } from './../shared';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductCreateComponent,
+    ProductDetailComponent,
     StarComponent
   ],
   imports: [
