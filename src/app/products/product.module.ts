@@ -1,22 +1,30 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { ProductListComponent } from './list';
 import { ProductCreateComponent } from './create';
-import { ProductDetailComponent } from './detail';
-import { StarComponent } from './../shared';
+import { ProductDetailComponent, ProductDetailGuard } from './detail';
+import { SharedModule } from './../shared';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductCreateComponent,
-    ProductDetailComponent,
-    StarComponent
+    ProductDetailComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule
+    RouterModule.forChild([
+      {
+        path: 'products/list',
+        component: ProductListComponent
+      },
+      {
+        path: 'product/detail/:id',
+        canActivate: [ProductDetailGuard],
+        component: ProductDetailComponent
+      }
+    ]),
+    SharedModule
   ]
 })
 export class ProductModule { }

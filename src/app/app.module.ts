@@ -1,22 +1,37 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HomeComponent } from './home';
 import { ProductModule } from './products';
-import { ConvertToSpacesPipe } from './shared';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConvertToSpacesPipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: '**',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      }
+    ]),
     ProductModule
   ],
   providers: [],

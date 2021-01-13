@@ -1,8 +1,8 @@
+import { ProductDetailGuard } from './detail/product-detail.guard';
 import { Routes } from "@angular/router";
 
 import { ProductListComponent } from "./list";
 import { ProductDetailComponent } from "./detail";
-import { ProductCreateComponent } from "./create";
 
 export const ProductsRoutes: Routes = [
   {
@@ -15,10 +15,7 @@ export const ProductsRoutes: Routes = [
   },
   {
     path: 'product/detail/:id',
+    canActivate: [ProductDetailGuard],
     component: ProductDetailComponent
-  },
-  {
-    path: 'product/create',
-    component: ProductCreateComponent
   }
 ];
